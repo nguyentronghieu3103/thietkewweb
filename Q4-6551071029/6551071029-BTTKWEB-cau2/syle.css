@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.content {
+  width: 600px;
+  border: 1px solid #000;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: darkgreen;
+}
+
+.red {
+  color: red;
+}
+
+pre {
+  font-family: "Courier New", monospace;
+  margin-left: 40px;
+}

@@ -1,0 +1,22 @@
+h1{
+    color: blue;
+    text-align: center;
+    font-size: 32;
+}
+.table{
+    background-color: bisque;
+    border: 2;
+    border-collapse: collapse;
+    margin: auto;
+}
+.blue{
+    color: blue;
+}
+.red{
+    text-align: center;
+    color: brown;
+}
+.group{
+    color: brown;
+    border-color: brown ;
+}

@@ -1,0 +1,17 @@
+.a{
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+.b{
+    text-align: center;
+    color: brown;
+}
+ table {
+      border: 2px solid burlywood; 
+      border-collapse: collapse;
+    }
+    th, td {
+      border:  1px  solid burlywood; 
+      padding: 8px;
+    }

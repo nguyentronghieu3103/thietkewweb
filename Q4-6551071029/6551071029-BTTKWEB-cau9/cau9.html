@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>bai 9</title>
+</head>
+<body>
+  <h1>Đăng ký du lịch</h1>
+  <table border="2" class="table">
+     <!-- ho ten -->
+      <tr>
+        <td class="blue">
+          <label for="name">Họ và tên</label>
+        </td>
+        <td>
+          <input type="text" name="name" id="name">
+        </td>
+      </tr>
+      <!-- dia chi -->
+      <tr>
+        <td class="blue">
+          <label for="address">Địa chỉ</label>
+        </td>
+        <td>
+          <input type="text" name="address" id="address">
+        </td>
+      </tr>
+      <!-- dien thoai -->
+       <tr>
+        <td class="blue">
+          <label for="tel">Điện thoại</label>
+        </td>
+        <td>
+          <input type="tel" name="tel" id="tel">
+        </td>
+      </tr>
+      <!-- khach viet nam -->
+       <tr class="blue">
+        <td>Khách Việt Nam</td>
+        <td> <input type="checkbox"> </td>
+       </tr>
+       <!-- chon tour -->
+      <tr>
+        <td class="blue">chon tour</td>
+        <td>
+          <form action="">
+            <select>
+              <option>Buôn mê thuột - Gia lai - Kontum</option>
+              <option>Đà Nẵng - Huế - Hội An</option>
+              <option>Hà Nội - Hạ Long - Sapa</option>
+            </select>
+          </form>
+        </td>
+      </tr>
+      <!-- phuong tien -->
+      <tr>
+        <td class="blue"> <label for="tour">Chọn tour</label></td>
+        <td>
+          <label><input type="radio" name="pt" checked> Máy bay</label>
+          <label><input type="radio" name="pt"> Xe ô tô</label>
+        </td>
+      </tr>
+      <!--so luong doan khach  -->
+      <tr>
+        <td colspan="2"> 
+          <fieldset class="group">
+            <legend>Số lượng đoàn khách</legend>
+            <label class="blue">Người lớn</label>
+            <input type="number">
+            <label class="blue">Trẻ em</label>
+            <input type="number">
+          </fieldset>
+        </td>
+      </tr>
+      <!-- ghi chu  -->
+       <tr>
+        <td class="blue"> <label for="note">Ghi chú thêm </label></td>
+        <td> <textarea name="ghi chu" id="note"></textarea></td>
+       </tr>
+        <tr>
+        <td colspan="2" style="text-align: center;"> 
+          <button type="submit"> Đồng ý </button>
+        </td>
+      </tr>
+      <tr>
+        <td class="red" colspan="2">Bạn đã đăng ký thành công !!! </td>
+      </tr>
+  </table>
+</body>
+</html>

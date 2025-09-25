@@ -1,0 +1,16 @@
+h1{
+    color: green;
+    text-align: center;
+}
+.table{
+    margin: auto;
+    background-color: aquamarine;
+    color: green;
+    border: 2px solid blue;
+    border-collapse: collapse;
+}
+.red{
+    text-align: center;
+    color: red;
+}
+
