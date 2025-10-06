@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai21</title>
+</head>
+<body>
+    <script>
+    var ngay = parseInt(prompt("Nhập ngày:"));
+    var thang = parseInt(prompt("Nhập tháng (1-12):")) 
+    var nam = parseInt(prompt("Nhập năm:"));
+
+    var date = new Date(nam, thang-1, ngay);
+
+    var cacThu = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
+    var thu = cacThu[date.getDay()];
+
+    alert("Ngày " + ngay + "/" + (thang + 1) + "/" + nam + " là " + thu);
+    </script>
+</body>
+</html>
