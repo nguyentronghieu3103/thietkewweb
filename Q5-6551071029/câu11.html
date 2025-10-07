@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai11</title>
+</head>
+<body>
+    <script>
+        var x = parseInt(prompt("nhap so nguyen: "));
+        function daonguoc(x){
+            var i,y=0;
+            for(i = x; i != 0; i= Math.floor(i/10)){
+                y = y*10 + (i%10);
+            }
+            return y;
+        }
+        var z = daonguoc(x);
+        alert("so nguyen sau khi dao nguoc la: " + z);
+    </script>
+</body>
+</html>

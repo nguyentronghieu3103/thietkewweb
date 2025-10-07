@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cau17</title>
+</head>
+<body>
+    <script>
+        var x = parseInt(prompt("nhap so nhi phan: "));
+        var cnt = 0 ,dec =0;
+        for( var i = x; i != 0; i = Math.floor(i/10)){
+            dec += (i%10)*Math.pow(2,cnt);
+            cnt++;
+        }
+        alert("so thap phan tuong ung la: " + dec);
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai16</title>
+</head>
+<body>
+    <script>
+        function HinhTru(radius, height){
+            this.radius = radius;
+            this.height = height;
+            this.thetich = function(){
+                alert("the tich hinh tru la: " + (Math.PI * this.radius*this.radius*this.height));
+            }
+            this.S_ToanPhan = function(){
+                alert("dien tich toan phan la: "+ ((2*Math.PI*this.radius*this.radius)+ (2*Math.PI*this.radius*this.height)));
+            }
+        }
+        var a = new HinhTru(10,15);
+        a.thetich();
+        a.height = 30;
+        a.S_ToanPhan();
+    </script>
+</body>
+</html>

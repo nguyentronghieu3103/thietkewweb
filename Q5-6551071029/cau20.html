@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai20</title>
+</head>
+<body>
+    <script>
+        var day = parseInt(prompt("nhap ngay: "));
+        var month = parseInt(prompt("nhap thang: "));
+        var year = parseInt(prompt("nhap nam: "));
+        var hour = parseInt(prompt("nhap gio: "));
+        var minutes = parseInt(prompt("nhap phut: "));
+        var second = parseInt(prompt("nhap giay: "));
+        var Date = new Date(year,month-1,day,hour,minutes,second);
+        alert("Ngay: " + Date.getDate() + "/" +  (Date.getMonth()+1) + "/" +  Date.getFullYear() + " Gio: " + Date.getHours() + ":" +  Date.getMinutes() + ":" +  Date.getSeconds());
+    </script>
+</body>
+</html>
