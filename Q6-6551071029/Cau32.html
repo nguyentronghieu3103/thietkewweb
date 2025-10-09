@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<title>Display a random image</title>
+<style>
+  body { margin-top: 30px; font-family: Arial; text-align: center; }
+  img { margin-top: 20px; border: 2px solid #333; border-radius: 8px; }
+</style>
+</head>
+<body>
+<h3>Hiển thị hình ảnh ngẫu nhiên</h3>
+
+<div>
+  <button onclick="display_random_image()">Show Image</button>
+</div>
+
+<div id="imageContainer"></div>
+
+<script>
+function display_random_image() {
+  const images = [
+    { src: "https://ben.com.vn/tin-tuc/wp-content/uploads/2021/12/hinh-nen-soi-dep-cho-dien-thoai-1.jpg", width: 240, height: 160 },
+    { src: "https://cdn.tienphong.vn/images/a6bf4f60924201126af6849ca45a3980c9543e2909f36131cb4f5a3b65464b76698e464603e175e63b8ac19b122ae5ad/2_MZQT.jpg", width: 320, height: 195 },
+    { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0OI3ZorFgQLVMwGEGG8y4R9HeblU277L7OQ&s", width: 500, height: 343 }
+  ];
+
+  const randomIndex = Math.floor(Math.random() * images.length);
+  const randomImage = images[randomIndex];
+
+  const img = document.createElement("img");
+  img.src = randomImage.src;
+  img.width = randomImage.width;
+  img.height = randomImage.height;
+
+  const container = document.getElementById("imageContainer");
+  container.innerHTML = "";
+  container.appendChild(img);
+}
+</script>
+</body>
+</html>

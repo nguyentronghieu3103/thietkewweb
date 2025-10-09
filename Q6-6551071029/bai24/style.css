@@ -1,0 +1,16 @@
+#day{
+    width: 40px;
+}
+#month{
+    width: 40px;
+}
+#year{
+    width: 40px;
+}
+#border{
+    background-color: pink;
+    border-color: blue;
+}
+.xuat{
+    text-align: center;
+}

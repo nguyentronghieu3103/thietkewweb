@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>bai24</title>
+</head>
+<body>
+    <table border="2" id="border">
+        <tr>
+            <td>
+                    <label for="day">Ngay</label>
+                    <input type="number" name="day" id="day">
+                    <label for="month">Thang</label>
+                    <input type="number" name="month" id="month">
+                    <label for="year">Nam</label>
+                    <input type="number" name="year" id="year">
+            </td>
+        </tr>
+        <tr>
+            <td class="xuat"> <button type="button" onclick="date()" >xuat thu</button></td>
+        </tr>
+        <tr>
+            <td> 
+                <span id="ketqua"></span>
+            </td>
+        </tr>
+    </table>
+    <script src="cript.js"></script>
+</body>
+</html>

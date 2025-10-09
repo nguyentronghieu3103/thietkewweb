@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<title>cau29</title>
+</head>
+<body>
+<form id="form1" onsubmit="return getFormvalue()">
+  First name: <input type="text" id="fname" value="David"><br>
+  Last name: <input type="text" id="lname" value="Beckham"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p id="ketqua"></p>
+
+<script>
+function getFormvalue() {
+  const ho = document.getElementById("fname").value;
+  const ten = document.getElementById("lname").value;
+
+  document.getElementById("ketqua").innerHTML = "Họ và tên: " + ho + " " + ten;
+
+  return false;
+}
+</script>
+</body>
+</html>
