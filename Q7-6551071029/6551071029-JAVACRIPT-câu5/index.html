@@ -1,0 +1,32 @@
+
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Display a random image.</title>
+        <style type="text/css">
+            body {margin-top: 30px;}
+        </style>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <button id="jsstyle"
+                onclick="display_random_image();">Show Image</button>
+        </div>
+        <br>
+        <img id="randomImage" src="" width="500" height="300">
+        <script>
+            const images=[
+                "images/anh1.jpg",
+                "images/anh2.jpg",
+                "images/anh3.jpg",
+            ]
+            $(function(){
+                $("#jsstyle").click(function(){
+                    let random = Math.floor(Math.random()* images.length);
+                    $("#randomImage").attr("src",images[random]);
+                })
+            })
+        </script>
+    </body>
+</html>

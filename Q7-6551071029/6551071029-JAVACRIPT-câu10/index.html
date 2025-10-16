@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Máy tính đơn giản (jQuery + CSS bằng jQuery)</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+  <div class="calculator">
+    <input type="text" id="display" placeholder="Nhập biểu thức..."><br>
+    <div class="buttons">
+      <button class="btn">1</button>
+      <button class="btn">2</button>
+      <button class="btn">3</button>
+      <button class="btn">+</button><br>
+      <button class="btn">4</button>
+      <button class="btn">5</button>
+      <button class="btn">6</button>
+      <button class="btn">-</button><br>
+      <button class="btn">7</button>
+      <button class="btn">8</button>
+      <button class="btn">9</button>
+      <button class="btn">*</button><br>
+      <button class="btn">0</button>
+      <button id="clear">C</button>
+      <button id="equal">=</button>
+      <button class="btn">/</button>
+    </div>
+  </div>
+
+<script>
+$(document).ready(function(){
+
+  /* --- TẠO CSS BẰNG JQUERY --- */
+  $("body").css({
+    "font-family": "Arial, sans-serif",
+    "background": "#f2f2f2",
+    "text-align": "center",
+    "margin-top": "60px"
+  });
+
+  $(".calculator").css({
+    "display": "inline-block",
+    "background": "#fff",
+    "padding": "20px",
+    "border-radius": "12px",
+    "box-shadow": "0 4px 10px rgba(0,0,0,0.2)"
+  });
+
+  $("#display").css({
+    "width": "230px",
+    "height": "40px",
+    "font-size": "18px",
+    "text-align": "right",
+    "margin-bottom": "10px",
+    "border": "1px solid #ccc",
+    "border-radius": "6px"
+  });
+
+  $("button").css({
+    "width": "50px",
+    "height": "40px",
+    "margin": "5px",
+    "font-size": "18px",
+    "border-radius": "8px",
+    "cursor": "pointer",
+    "border": "1px solid #ccc",
+    "background": "#e6e6e6"
+  });
+
+  // Khi rê chuột vào nút
+  $("button").hover(
+    function() { $(this).css("background", "#d9d9d9"); },
+    function() { $(this).css("background", "#e6e6e6"); }
+  );
+
+  /* --- CHỨC NĂNG MÁY TÍNH --- */
+  $(".btn").click(function(){
+    let val = $(this).text();
+    $("#display").val($("#display").val() + val);
+  });
+
+  $("#clear").click(function(){
+    $("#display").val("");
+  });
+
+  $("#equal").click(function(){
+    let expr = $("#display").val().trim();
+    let match = expr.match(/^(\d+)([+\-*/])(\d+)$/);
+
+    if(match){
+      let a = parseFloat(match[1]);
+      let op = match[2];
+      let b = parseFloat(match[3]);
+      let result;
+
+      switch(op){
+        case '+': result = a + b; break;
+        case '-': result = a - b; break;
+        case '*': result = a * b; break;
+        case '/':
+          if(b === 0){
+            alert("Không thể chia cho 0!");
+            return;
+          }
+          result = a / b;
+          break;
+      }
+      $("#display").val(result);
+    } else {
+      alert("Biểu thức không hợp lệ! (chỉ nhập: số toán tử số)");
+    }
+  });
+
+  // Enter để tính
+  $(document).on("keydown", function(e){
+    if(e.key === "Enter"){
+      $("#equal").click();
+    }
+  });
+
+});
+</script>
+</body>
+</html>

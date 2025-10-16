@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Thêm và xóa hàng trong Table </title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+</head>
+<body style="border:1px solid grey">
+  	<h2>Quản lý thông tin user</h2>
+    <form>
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <input type="date" id="datepicker" required>
+    <input type="button" class="add-row" value="Add Row">
+</form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Birthdate</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+    <button type="button" class="delete-row">Delete Row</button>
+    <script>
+$(document).ready(function () {
+
+    // Khi nhấn nút Add Row
+    $(".add-row").click(function () {
+        const nameInput = $("#name")[0];
+        const emailInput = $("#email")[0];
+        const dateInput = $("#datepicker")[0];
+
+        // Gọi checkValidity() trên từng input
+        if (!nameInput.checkValidity()) {
+            alert("Vui lòng nhập tên hợp lệ!");
+            nameInput.focus();
+            return;
+        }
+
+        if (!emailInput.checkValidity()) {
+            alert("Vui lòng nhập email hợp lệ!");
+            emailInput.focus();
+            return;
+        }
+
+        if (!dateInput.checkValidity()) {
+            alert("Vui lòng nhập ngày sinh hợp lệ!");
+            dateInput.focus();
+            return;
+        }
+
+        // Lấy giá trị
+        const name = $("#name").val().trim();
+        const email = $("#email").val().trim();
+        const birthdate = $("#datepicker").val().trim();
+
+        // Thêm hàng mới vào bảng
+        const newRow = `
+            <tr>
+                <td><input type='checkbox' class='select-row'></td>
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>${birthdate}</td>
+            </tr>
+        `;
+        $("table tbody").append(newRow);
+
+        // Reset form
+        $("form")[0].reset();
+    });
+
+    // Khi nhấn nút Delete Row
+    $(".delete-row").click(function () {
+        $("table tbody").find("input.select-row:checked").each(function () {
+            $(this).closest("tr").remove();
+        });
+    });
+});
+</script>
+
+</body> 
+</html>

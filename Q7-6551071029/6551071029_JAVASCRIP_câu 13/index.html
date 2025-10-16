@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Home</title>
+<meta charset="UTF-8">
+<!--Font Awesome CDN Link-->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="style.css">
+<script src="jquery-latest.min.js"></script>
+</head>
+<body>
+
+	 <div class="password-show-card">
+    <input type="password" id="password" class="input-control" placeholder="Enter Password">
+    <i class="fa fa-eye password-show" id="togglePassword"></i>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#togglePassword").on("click", function () {
+        const passwordInput = $("#password");
+        const type = passwordInput.attr("type") === "password" ? "text" : "password";
+        passwordInput.attr("type", type);
+        $(this).toggleClass("fa-eye fa-eye-slash");
+      });
+    });
+  </script>
+
+</body>
+</html>

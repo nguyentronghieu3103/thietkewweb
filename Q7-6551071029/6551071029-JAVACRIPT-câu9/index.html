@@ -1,0 +1,98 @@
+
+<html>
+    <head>
+        <Title>Form</Title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <form id="form">
+        <table border="1">
+            <caption><h1>Personal Information</h1></caption>
+            <tr>
+                <td id="right">Enter name*:</td>
+                <td><input type="text" id="name" required></td>
+            </tr>
+            <tr>
+                <td id="right">Sex*:</td>
+                <td><input type="radio" name="gender" value="Male" id="Sex" required>Male <input type="radio" name="gender" value="Female" id="Sex">Female</td>
+            </tr>
+            <tr>
+                <td id="right">Enter email address*:</td>
+                <td><input type="email" id="email" required></td>
+            </tr>
+            <tr>
+                <td id="right">Enter birthday (DD/MM/YYYY)*:</td>
+                <td><input type="date" id="date" required></td>
+            </tr>
+            <tr>
+                <td id="right">Enter street address (line 1)*:</td>
+                <td><input type="text" id="address" required></td>
+            </tr>
+            <tr>
+                <td id="right">Enter city*:</td>
+                <td><input type="text" id="city" required></td>
+            </tr>
+            <tr>
+                <td id="right">Select a region*:</td>
+                <td>
+                    <select name="region" id="region" required>
+                        <option value="" disabled selected>None</option>
+                        <option value="TP.HCM">TP.HCM</option>
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="Huế">Huế</option>
+                        <option value="Đà Nẵng">Đà Nẵng</option>
+                        <option value="Cà Mau">Cà Mau</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td id="right">Enter 5-digit ZIP code*:</td>
+                <td><input type="text" id="ZIP" required pattern="\d{5}"></td>
+            </tr>
+            <tr>
+                <td id="right"><button id="FN">Finished</button></td>
+                <td><input type="reset" value="Clear"></td>
+            </tr>
+        </table>
+        </form>
+        <script>
+            $("table").css({
+                "border-style": "hidden",
+                "margin": "auto"
+            })
+            $("table td").css({
+                "border-style": "hidden"
+            })
+            $("table caption").css({
+                "color": "rgb(46, 0, 163)",
+            })
+            $("[id^='right']").css({
+                "text-align": "right"
+            })
+            $("[type='text']").css({
+                "width":"7cm"
+            })
+             $(function(){
+                $("#FN").click(function(e){
+                let inputs = $("#form input");
+                let valid = true;
+                inputs.each(function(){
+                if(!this.checkValidity()){
+                    alert("Ô '" + this.id + "' chưa hợp lệ hoặc chưa được nhập!");
+                    valid = false;
+                    return false;
+                }
+                let region=$("#region").val();
+                if(region===""){
+                    alert("Vui lòng chọn vùng");
+                    valid=false;
+                }
+                });
+                if(valid){
+                alert("Tất cả thông tin đều hợp lệ");
+            }
+        });
+      });
+        </script>
+    </body>
+</html>

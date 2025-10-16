@@ -1,0 +1,51 @@
+
+<html>
+    <head>
+        <title>Caculator</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <input type="text" id="n1">
+        <button id="+">+</button>
+        <button id="-">-</button>
+        <button id="*">*</button>
+        <button id="/">/</button>
+        <input type="text" id="n2">
+        <button id="=">=</button>
+        <input type="text" id="result" readonly>
+    </body>
+    <script>
+        $(function(){
+            $("button").css({
+                "width": "50",
+                "text-align": "center",
+                "height": "25"
+            })
+            $("input").css({"width":"100"})
+            let operator="";
+            let result;
+            $("button").click(function(){
+                let id = $(this).attr("id");
+                if(id !== "="){
+                    switch(id){
+                        case "+": operator = "+"; break;
+                        case "-": operator = "-"; break;
+                        case "*": operator = "*"; break;
+                        case "/": operator = '/'; break;
+                    }
+                }
+                if(id === "="){
+                    let a= parseFloat($("#n1").val());
+                    let b= parseFloat($("#n2").val());
+                    switch(operator){
+                        case "+": result = a+b; break;
+                        case "-": result = a-b; break;
+                        case "*": result = a*b; break;
+                        case "/": result = a/b; break;
+                    }
+                }
+                $("#result").val(result);
+            })
+        })
+    </script>
+</html>
