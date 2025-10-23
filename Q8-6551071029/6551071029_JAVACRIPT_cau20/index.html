@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow hoa</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            padding: 30px;
+        }
+
+        .slider {
+            position: relative;
+            width: 1000px;
+            overflow: hidden;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            background: #fff;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.6s ease;
+            width: max-content;
+        }
+
+        .slides img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,165,0,0.9);
+    color: white;
+    font-size: 28px;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    z-index: 10; 
+}
+
+        .arrow:hover {
+            background-color: orange;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center">Slideshow </h2>
+
+    <div class="slider">
+        <button class="arrow prev">&#10094;</button>
+        <div class="slides">
+            <img src="images/anh1.jpg">
+            <img src="images/anh2.jpg">
+            <img src="images/anh3.jpg">
+            <img src="images/anh4.jpg">
+            <img src="images/anh5.jpg">
+            <img src="images/anh6.jpg">
+            <img src="images/anh7.jpg">
+            <img src="images/anh8.jpg">
+            <img src="images/anh9.jpg">
+            <img src="images/anh10.jpg">
+        </div>
+        <button class="arrow next">&#10095;</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const slideWidth = 220; 
+            const totalSlides = $(".slides img").length;
+            let currentIndex = 0;
+
+            function moveSlide(index) {
+                $(".slides").css("transform", `translateX(-${index * slideWidth}px)`);
+            }
+
+            $(".next").click(function() {
+                currentIndex++;
+                if (currentIndex > totalSlides - 5) currentIndex = 0;
+                moveSlide(currentIndex);
+            });
+
+            $(".prev").click(function() {
+                currentIndex--;
+                if (currentIndex < 0) currentIndex = totalSlides - 5;
+                moveSlide(currentIndex);
+            });
+            setInterval(function() {
+                currentIndex++;
+if (currentIndex > totalSlides - 5) currentIndex = 0;
+                moveSlide(currentIndex);
+            }, 3000);
+            });
+    </script>
+
+</body>
+</html>

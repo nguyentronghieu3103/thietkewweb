@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>Movie</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+  <table class="ticket-table" border="1">
+    <caption><b>Mua vé</b></caption>
+    <tr>
+      <td>Ngày chiếu</td>
+      <td><input type="date" id="ngaychieu"></td>
+    </tr>
+    <tr>
+      <td>Phim</td>
+      <td>
+        <select id="phim">
+          <option>Phim</option>
+          <option>Yêu em bất chấp</option>
+          <option>Tháng năm rực rỡ</option>
+          <option>Và em sẽ đến</option>
+          <option>Chuyện ma lúc 3 giờ sáng</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Suất chiếu</td>
+      <td>
+        <select id="suatchieu">
+          <option>Suất chiếu</option>
+          <option>9h - 12h</option>
+          <option>13h - 16h</option>
+          <option>17h - 20h</option>
+          <option>22h - 2h</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Phòng chiếu</td>
+      <td>
+        <select id="phongchieu">
+          <option>Phòng chiếu</option>
+          <option>Đồng</option>
+          <option>Bạc</option>
+          <option>Vàng</option>
+          <option>Kim Cương</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Chọn chỗ ngồi</td>
+      <td>
+        <select id="cho" size="4">
+          <option>Ghế 01</option>
+          <option>Ghế 02</option>
+          <option>Ghế 03</option>
+          <option>Ghế 04</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <button id="muave">Mua vé</button>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <span id="result"></span>
+  <script>
+    $(function() {
+  $("#muave").click(function() {
+
+    let ngayChieu = $("#ngaychieu").val();
+    let phim = $("#phim").val();
+    let suatChieu = $("#suatchieu").val();
+    let phongChieu = $("#phongchieu").val();
+    let choNgoi = $("#cho").val();
+
+
+    if (!ngayChieu || phim === "Phim" || suatChieu === "Suất chiếu" || phongChieu === "Phòng chiếu") {
+      alert("⚠️ Vui lòng chọn đầy đủ thông tin trước khi mua vé!");
+      return;
+    }
+
+    let giaCoBan = 0;
+    if (suatChieu.includes("9h")) giaCoBan = 45000;
+    else if (suatChieu.includes("13h")) giaCoBan = 45000;
+    else if (suatChieu.includes("17h")) giaCoBan = 55000;
+    else if (suatChieu.includes("22h")) giaCoBan = 35000;
+
+    // Lấy hệ số phòng chiếu
+    let heSo = 1;
+    if (phongChieu.includes("Đồng")) heSo = 1.0;
+    else if (phongChieu.includes("Bạc")) heSo = 1.2;
+    else if (phongChieu.includes("Vàng")) heSo = 1.5;
+    else if (phongChieu.includes("Kim Cương")) heSo = 2.0;
+
+    let giaVe = giaCoBan * heSo;
+
+    let html = `
+    <table border="1" cellpadding="5" style="margin-top:10px;">
+        <caption><b>Thông tin vé</b></caption>
+        <tr><td>Ngày chiếu</td><td>${ngayChieu}</td></tr>
+        <tr><td>Phim</td><td>${phim}</td></tr>
+        <tr><td>Suất chiếu</td><td>${suatChieu.split("│")[0]}</td></tr>
+        <tr><td>Phòng chiếu</td><td>${phongChieu.split("│")[0]}</td></tr>
+        <tr><td>Ghế</td><td>${choNgoi}</td></tr>
+        <tr><td>Giá vé</td><td>${giaVe.toLocaleString()} đ</td></tr>
+      </table>
+    `;
+
+    $("#result").html(html);
+  });
+});
+
+  </script>
+</body>
+</html>
